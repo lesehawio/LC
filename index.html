@@ -1,232 +1,93 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Weekly Tracker and Learning Capsules with abstract shapes.">
-    <title>Weekly Tracker & My Capsules</title>
-    <link rel="icon" href="https://cdn.imgurl.ir/uploads/j481796_CL.ico" type="image/x-icon">
-    <style>
-        :root {
-            --background-color: #001a4d;
-            --text-color: #ff3333;
-            --button-color: #FD3132;
-            --item-bg-color: rgba(255, 255, 255, 0.2);
-            --item-hover-bg-color: rgba(255, 255, 255, 0.3);
-            --filled-color: #ff3333;
-            --empty-color: rgba(255, 255, 255, 0.2);
-        }
-        body {
-            font-family: Arial, sans-serif;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            height: 100vh;
-            padding: 20px;
-        }
-        .container {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-            width: 300px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        h1 {
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-        .input-group {
-            margin: 10px 0;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 16px;
-            color: var(--text-color);
-        }
-        input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid var(--text-color);
-            border-radius: 5px;
-            background-color: #fff;
-            color: #000;
-            font-size: 14px;
-        }
-        button {
-            background-color: var(--button-color);
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px;
-            font-size: 16px;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background-color: #d62c2d;
-        }
-        .capsule-list {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        .capsule-item {
-            background-color: var(--item-bg-color);
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
-            position: relative;
-            transition: background-color 0.3s;
-        }
-        .capsule-container {
-            width: 100%;
-            height: 50px;
-            display: flex;
-            justify-content: space-between;
-            border: 2px solid var(--text-color);
-            border-radius: 5px;
-            overflow: hidden;
-            margin-bottom: 10px;
-        }
-        .small-rectangle {
-            width: 20%;
-            height: 100%;
-            background-color: var(--empty-color);
-            transition: background-color 0.3s;
-        }
-        .filled {
-            background-color: var(--filled-color);
-        }
-        .status {
-            margin-top: 5px;
-            font-weight: bold;
-            color: green;
-        }
-        .footer {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #f0f0f0;
-        }
-        .next-round-message {
-            margin-top: 10px;
-            font-weight: bold;
-            color: blue;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Learning Capsule Menu</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #012060;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #FD3131;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      direction: rtl;
+    }
+    .menu {
+      background: rgba(255 255 255 / 0.05);
+      border: 2px solid #FD3131;
+      border-radius: 20px;
+      padding: 30px 40px 40px 40px;
+      box-shadow: 0 0 15px #FD3131;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 320px;
+      align-items: center;
+      text-align: center;
+    }
+    .menu a.logo-link {
+      display: inline-block;
+      cursor: pointer;
+      border-radius: 8px;
+      box-shadow: none;
+      transition: transform 0.3s ease;
+      margin-bottom: 15px;
+    }
+    .menu a.logo-link:hover {
+      transform: scale(1.1);
+    }
+    .menu a.logo-link img {
+      width: 80px;
+      height: 80px;
+      display: block;
+      border-radius: 8px;
+      margin: 0 auto;
+    }
+    .menu h1 {
+      margin: 0 0 10px 0;
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      color: #FD3131;
+      text-shadow: 0 0 8px #FD3131;
+      user-select: none;
+    }
+    .menu a {
+      background-color: #012060;
+      color: #FD3131;
+      text-decoration: none;
+      padding: 15px 20px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      border: 2px solid #FD3131;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 8px #FD3131;
+      transition: background-color 0.3s, color 0.3s;
+      user-select: none;
+      width: 100%;
+    }
+    .menu a:hover {
+      background-color: #FD3131;
+      color: #012060;
+      box-shadow: 0 0 15px #FD3131;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>ثبت کپسول</h1>
-        <div class="input-group">
-            <label for="name">نام:</label>
-            <input type="text" id="name" placeholder="نام خود را وارد کنید" required>
-        </div>
-        <div class="input-group">
-            <label for="count">تعداد دفعات تکرار:</label>
-            <input type="number" id="count" placeholder="تعداد دفعات" required min="1" max="5">
-        </div>
-        <div class="input-group">
-            <label for="startDate">از تاریخ:</label>
-            <input type="date" id="startDate" required>
-        </div>
-        <div class="input-group">
-            <label for="endDate">تا تاریخ:</label>
-            <input type="date" id="endDate" required>
-        </div>
-        <button id="submitBtn">اضافه کردن کپسول</button>
-    </div>
-
-    <div class="container">
-        <h1>کپسول‌های من</h1>
-        <ul class="capsule-list" id="capsuleList">
-            <!-- کپسول‌ها در اینجا نمایش داده می‌شوند -->
-        </ul>
-    </div>
-    
-    <div class="footer">
-        with 🤍 by lesehawio
-    </div>
-
-    <script>
-        const capsules = [];
-
-        document.getElementById('submitBtn').onclick = function() {
-            const name = document.getElementById('name').value;
-            const count = parseInt(document.getElementById('count').value);
-            const startDate = document.getElementById('startDate').value;
-            const endDate = document.getElementById('endDate').value;
-
-            if (name && count && startDate && endDate) {
-                const capsule = { name, count, startDate, endDate, currentCount: 0 };
-                capsules.push(capsule);
-                displayCapsules();
-                clearForm();
-            } else {
-                alert('لطفاً همه فیلدها را پر کنید.');
-            }
-        };
-
-        function displayCapsules() {
-            const capsuleList = document.getElementById('capsuleList');
-            capsuleList.innerHTML = ''; // Clear previous list
-            capsules.forEach((capsule, index) => {
-                const li = document.createElement('li');
-                li.className = 'capsule-item';
-                li.innerHTML = `
-                    <strong>${capsule.name}</strong><br>
-                    <div class="capsule-container" data-count="${capsule.count}">
-                        <div class="small-rectangle"></div>
-                        <div class="small-rectangle"></div>
-                        <div class="small-rectangle"></div>
-                        <div class="small-rectangle"></div>
-                        <div class="small-rectangle"></div>
-                    </div>
-                    <div class="status" id="status-${index}"></div>
-                    <button onclick="editCapsule(this, ${index})">ویرایش</button>
-                    <div>تعداد: ${capsule.count}<br>از تاریخ: ${capsule.startDate}<br>تا تاریخ: ${capsule.endDate}</div>`;
-                capsuleList.appendChild(li);
-            });
-        }
-
-        function editCapsule(button, index) {
-            const capsuleContainer = button.parentElement.querySelector('.capsule-container');
-            const totalCount = capsules[index].count;
-
-            const newCount = prompt("تعداد مستطیل‌های پر شده را وارد کنید:", 0);
-
-            if (newCount !== null) {
-                const validCount = Math.min(Math.max(parseInt(newCount), 0), totalCount); // Limit based on total count
-                capsules[index].currentCount = validCount;
-
-                // Fill rectangles based on validCount
-                const rectangles = capsuleContainer.querySelectorAll('.small-rectangle');
-                rectangles.forEach((rect, i) => {
-                    rect.classList.toggle('filled', i < capsules[index].currentCount);
-                });
-
-                // Update status
-                if (capsules[index].currentCount >= totalCount) {
-                    document.getElementById(`status-${index}`).innerText = "تکمیل شد";
-                } else {
-                    document.getElementById(`status-${index}`).innerText = ""; // Clear status if not complete
-                }
-            }
-        }
-
-        function clearForm() {
-            document.getElementById('name').value = '';
-            document.getElementById('count').value = '';
-            document.getElementById('startDate').value = '';
-            document.getElementById('endDate').value = '';
-        }
-    </script>
+  <nav class="menu" role="navigation" aria-label="Learning Capsule Menu">
+    <a href="https://lesehawio.github.io/LC-ORGINALI/" target="_blank" rel="noopener noreferrer" class="logo-link" aria-label="بازگشت به سایت اصلی">
+      <img src="https://cdn.imgurl.ir/uploads/j481796_CL.ico" alt="Logo" title="بازگشت به سایت اصلی" />
+    </a>
+    <h1>Learning Capsule</h1>
+    <a href="https://lesehawio.github.io/LC2/" target="_blank" rel="noopener noreferrer">Track Capsules</a>
+    <a href="https://lesehawio.github.io/LC3/" target="_blank" rel="noopener noreferrer">Reward Cards</a>
+    <a href="https://lesehawio.github.io/LC4/" target="_blank" rel="noopener noreferrer">Medals</a>
+    <a href="https://docs.google.com/spreadsheets/d/1FffFfF9GrsJ7nnaPHr6-UDUZgTpbu2vLCbMv5LrMYdQ/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Capsule Archive</a>
+  </nav>
 </body>
 </html>
